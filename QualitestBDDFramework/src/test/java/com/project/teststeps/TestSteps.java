@@ -20,7 +20,7 @@ public class TestSteps {
 	
 	@Given("^I am on the Application$")
 	public void LaunchApplication() {
-		Helper.getDriver().navigate().to("http://ui.docfinity.com/docfinity/login.jsp");
+		Helper.getDriver().navigate().to("http://newtours.demoaut.com/");
 		Helper.getDriver().manage().window().maximize();
 		System.out.println("App Launched");
 	}

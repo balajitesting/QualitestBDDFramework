@@ -1,6 +1,5 @@
 package com.project.pages;
 
-
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -11,34 +10,34 @@ import com.qualitest.core.util.Helper;
 import net.serenitybdd.core.annotations.findby.FindBy;
 
 public class DocFinityHomePage extends BasePage {
-	
-	@FindBy(xpath="//span[@class='icon userIcon']")
+
+	@FindBy(xpath = "//span[@class='icon userIcon']")
 	private BaseElement userIcon;
-	
-	@FindBy(xpath="//span[contains(.,'Log Out')]")
+
+	@FindBy(xpath = "//span[contains(.,'Log Out')]")
 	private BaseElement Logout;
-	
-	@FindBy(id="logout_continueToLogin")
+
+	@FindBy(id = "logout_continueToLogin")
 	private BaseElement continueLogin;
-	
-	@FindBy(xpath="//div[@class='dialogContent']//div[@id='startProcess_processModelGrid']/div[@class='k-grid-content k-auto-scrollable']/div/div[contains(.,'No items match your filter.')]")
+
+	@FindBy(xpath = "//div[@class='dialogContent']//div[@id='startProcess_processModelGrid']/div[@class='k-grid-content k-auto-scrollable']/div/div[contains(.,'No items match your filter.')]")
 	private BaseElement itemsVerify;
-	
-	@FindBy(id="startProcess_btn_cancel")
+
+	@FindBy(id = "startProcess_btn_cancel")
 	private BaseElement cancelButton;
-	
 
 	public void verifyUser(String username) throws InterruptedException {
 		Thread.sleep(20000);
-		WebElement ele = Helper.getDriver().findElement(By.xpath("//span[text()=\""+username+ "\"]"));
+		WebElement ele = Helper.getDriver().findElement(By.xpath("//span[text()=\"" + username + "\"]"));
 		Assert.assertTrue(ele.isDisplayed());
 	}
-	
+
 	public void verifyPanelVisible(String panel) throws InterruptedException {
 		Thread.sleep(3000);
-		WebElement ele = Helper.getDriver().findElement(By.xpath("//div[@id=\""+panel+"Panel_panel\"]"));
+		WebElement ele = Helper.getDriver().findElement(By.xpath("//div[@id=\"" + panel + "Panel_panel\"]"));
 		Assert.assertTrue(ele.isDisplayed());
 	}
+
 	public void logoutFromApplication() throws InterruptedException {
 		Thread.sleep(1000);
 		userIcon.click();
@@ -48,6 +47,7 @@ public class DocFinityHomePage extends BasePage {
 		continueLogin.click();
 		Thread.sleep(2000);
 	}
+
 	public void verifyItemsPresent() throws InterruptedException {
 		Thread.sleep(5000);
 		Assert.assertTrue(itemsVerify.isDisplayed());
